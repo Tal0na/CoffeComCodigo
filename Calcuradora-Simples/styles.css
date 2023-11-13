@@ -1,52 +1,68 @@
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #74b9ff; /* Azul claro */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+.calculator {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 300px;
+  margin: 20px auto;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
   text-align: center;
-  color: #2d3436; /* Cinza escuro */
+  color: #000000;
+  margin-top: 0;
+}
+
+#display {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 1.5em;
+  text-align: right;
+  border: none;
+  outline: none;
+  background-color: #ecf0f1;
 }
 
 table {
-  border-collapse: collapse;
-  margin-top: 20px;
+  width: 100%;
 }
 
 td {
-  padding: 10px;
-}
-
-input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  font-size: 1.2em;
-  text-align: right;
-  border: none;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  text-align: center;
 }
 
 input[type="button"] {
-  width: 50px;
-  height: 50px;
-  font-size: 1em;
-  margin: 5px;
-  border: 1px solid #2d3436; /* Cinza escuro */
-  border-radius: 5px;
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  font-size: 1.2em;
   cursor: pointer;
+  border: none;
+  outline: none;
   transition: background-color 0.3s ease;
 }
 
-input[type="button"]:hover {
-  background-color: #a29bfe; /* Roxo claro */
+/* Estilizando os botões de operação */
+input[value="/"],
+input[value="-"],
+input[value="+"],
+input[value="="] {
+  background-color: #3498db;
+  color: #fff;
+  font-weight: bold;
 }
 
-input[type="button"]:active {
-  background-color: #6c5ce7; /* Roxo mais escuro */
+/* Estilizando o botão "C" */
+input[value="C"] {
+  background-color: #e74c3c;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Mudando a cor do botão quando hover (passar o mouse por cima) */
+input:hover {
+  background-color: #bdc3c7;
+  color: #fff;
 }

@@ -7,6 +7,6 @@ function addEntry() {
     entry.className = 'entry';
     entry.textContent = entryInput.value;
     entryList.appendChild(entry);
-    entryInput.value = ''; // Limpa o campo de entrada após adicionar a entrada
+    entryInput.value = '';
   }
 }
