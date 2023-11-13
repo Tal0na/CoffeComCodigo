@@ -1,19 +1,21 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Seu código JavaScript aqui
-
   const words = ['javascript', 'html', 'css', 'react', 'nodejs'];
   let selectedWord = words[Math.floor(Math.random() * words.length)];
   let guessedLetters = [];
-  let hangmanTries = 6;
+  let hangmanTries = 20;
 
   function setupGame() {
     document.getElementById('hangmanFigure').innerHTML = '';
     document.getElementById('word').innerHTML = '';
     document.getElementById('letters').innerHTML = '';
-
-    // Display underscores for each letter in the word
+  
+ 
     for (let i = 0; i < selectedWord.length; i++) {
-      document.getElementById('word').innerHTML += '_ ';
+      if (selectedWord[i] === ' ') {
+        document.getElementById('word').innerHTML += ' ';
+      } else {
+        document.getElementById('word').innerHTML += '_ ';
+      }
     }
 
     // Display available letters
@@ -28,12 +30,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function guessLetter(letter) {
     if (guessedLetters.includes(letter)) {
-      return; // Letter already guessed
+      return; 
     }
 
     guessedLetters.push(letter);
 
-    if (!selectedWord.includes(letter)) {
+    if (!selectedWord.includes(letter) && letter !== ' ') {
       hangmanTries--;
       updateHangmanFigure();
     }
@@ -70,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
     wordDisplay.innerHTML = '';
 
     for (let i = 0; i < selectedWord.length; i++) {
-      if (guessedLetters.includes(selectedWord[i])) {
+      if (guessedLetters.includes(selectedWord[i]) || selectedWord[i] === ' ') {
         wordDisplay.innerHTML += `${selectedWord[i]} `;
       } else {
         wordDisplay.innerHTML += '_ ';
@@ -88,3 +90,4 @@ document.addEventListener('DOMContentLoaded', function () {
   // Inicializa o jogo
   setupGame();
 });
+
